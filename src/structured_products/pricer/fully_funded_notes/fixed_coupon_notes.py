@@ -43,7 +43,7 @@ class ReverseConvertible:
 
     # Function produces the fair price of the structured product as decimal fraction of the notional invested
     def price(self):
-        return 1 - self.option_premium() / self.initial_spot
+        return 1 / (1 + self.rf) ** self.term - self.option_premium() / self.initial_spot
 
     # Get bid as the fair decimal fraction price minus the commission
     def bid(self, initial_commission, spread_from_mid_price, days_from_last_coupon):
@@ -110,7 +110,7 @@ class BarrierReverseConvertible:
 
     # Function produces the fair price of the structured product as decimal fraction of the notional invested
     def price(self):
-        return 1 - self.option_premium() / self.initial_spot
+        return 1 / (1 + self.rf) ** self.term - self.option_premium() / self.initial_spot
 
     # Get bid as the fair decimal fraction price minus the commission
     def bid(self, initial_commission, spread_from_mid_price, days_from_last_coupon):
@@ -185,7 +185,7 @@ class InverseReverseConvertible:
 
     # Function produces the fair price of the structured product as decimal fraction of the notional invested
     def price(self):
-        return 1 - self.option_premium() / self.initial_spot
+        return 1 / (1 + self.rf) ** self.term - self.option_premium() / self.initial_spot
 
     # Get bid as the fair decimal fraction price minus the commission
     def bid(self, initial_commission, spread_from_mid_price, days_from_last_coupon):
@@ -264,7 +264,7 @@ class InverseBarrierReverseConvertible:
 
     # Function produces the fair price of the structured product as decimal fraction of the notional invested
     def price(self):
-        return 1 - self.option_premium() / self.initial_spot
+        return 1 / (1 + self.rf) ** self.term - self.option_premium() / self.initial_spot
 
     # Get bid as the fair decimal fraction price minus the commission
     def bid(self, initial_commission, spread_from_mid_price, days_from_last_coupon):
@@ -358,7 +358,7 @@ class PerfectBondMatch:
 
     # Function produces the fair price of the structured product as decimal fraction of the notional invested
     def price(self):
-        return 1 - self.option_premium() / self.initial_spot
+        return 1 / (1 + self.rf) ** self.term - self.option_premium() / self.initial_spot
 
     # Get bid as the fair decimal fraction price minus the commission
     def bid(self, initial_commission, spread_from_mid_price, days_from_last_coupon):
@@ -454,7 +454,7 @@ class InversePerfectBondMatch:
 
     # Function produces the fair price of the structured product as decimal fraction of the notional invested
     def price(self):
-        return 1 - self.option_premium() / self.initial_spot
+        return 1 / (1 + self.rf) ** self.term - self.option_premium() / self.initial_spot
 
     # Get bid as the fair decimal fraction price minus the commission
     def bid(self, initial_commission, spread_from_mid_price, days_from_last_coupon):
